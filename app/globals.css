@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 1rem;
+
+    /* Category Colors */
+    --career: 210 100% 56%;
+    --relationships: 346 77% 60%;
+    --finance: 142 71% 45%;
+    --personal: 280 67% 55%;
+    --fitness: 20 90% 60%;
+    --social: 35 90% 55%;
+    --health: 230 80% 60%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+
+    /* Category Colors - Dark Mode */
+    --career: 210 100% 50%;
+    --relationships: 346 77% 55%;
+    --finance: 142 71% 40%;
+    --personal: 280 67% 50%;
+    --fitness: 20 90% 55%;
+    --social: 35 90% 50%;
+    --health: 230 80% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Category-specific styles for selected state */
+[data-state="active"].category-career {
+  @apply bg-[hsl(var(--career))] text-white;
+}
+
+[data-state="active"].category-relationships {
+  @apply bg-[hsl(var(--relationships))] text-white;
+}
+
+[data-state="active"].category-finance {
+  @apply bg-[hsl(var(--finance))] text-white;
+}
+
+[data-state="active"].category-personal {
+  @apply bg-[hsl(var(--personal))] text-white;
+}
+
+[data-state="active"].category-fitness {
+  @apply bg-[hsl(var(--fitness))] text-white;
+}
+
+[data-state="active"].category-social {
+  @apply bg-[hsl(var(--social))] text-white;
+}
+
+[data-state="active"].category-health {
+  @apply bg-[hsl(var(--health))] text-white;
+}
+
+/* Default state for tabs */
+[data-state="inactive"][class*="category-"] {
+  @apply bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400;
+}
+
+/* Hover state for inactive tabs */
+[data-state="inactive"][class*="category-"]:hover {
+  @apply bg-neutral-100 dark:bg-neutral-700;
+}
+
+.button-glow {
+  @apply relative overflow-hidden transition-all duration-300;
+}
+
+.button-glow::after {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 transition-opacity duration-500;
+}
+
+.button-glow:hover::after {
+  @apply opacity-20;
+}
+
+.slot-machine {
+  @apply bg-gradient-to-br from-neutral-800 to-neutral-900 shadow-xl;
+}
+
+/* Loading animation for form submission */
+.ml-form-embedSubmitLoad {
+  @apply inline-block w-5 h-5;
+}
+
+.ml-form-embedSubmitLoad:after {
+  content: " ";
+  @apply block w-4 h-4 m-0.5 rounded-full border-2 border-current border-t-transparent animate-spin;
+}
