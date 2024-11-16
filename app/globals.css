@@ -141,3 +141,61 @@
   content: " ";
   @apply block w-4 h-4 m-0.5 rounded-full border-2 border-current border-t-transparent animate-spin;
 }
+
+/* Category-specific button styles */
+.category-button-career {
+  @apply bg-[hsl(var(--career))] hover:bg-[hsl(var(--career))/90] text-white;
+}
+
+.category-button-relationships {
+  @apply bg-[hsl(var(--relationships))] hover:bg-[hsl(var(--relationships))/90] text-white;
+}
+
+.category-button-finance {
+  @apply bg-[hsl(var(--finance))] hover:bg-[hsl(var(--finance))/90] text-white;
+}
+
+.category-button-personal {
+  @apply bg-[hsl(var(--personal))] hover:bg-[hsl(var(--personal))/90] text-white;
+}
+
+.category-button-fitness {
+  @apply bg-[hsl(var(--fitness))] hover:bg-[hsl(var(--fitness))/90] text-white;
+}
+
+.category-button-social {
+  @apply bg-[hsl(var(--social))] hover:bg-[hsl(var(--social))/90] text-white;
+}
+
+.category-button-health {
+  @apply bg-[hsl(var(--health))] hover:bg-[hsl(var(--health))/90] text-white;
+}
+
+/* Category-specific card border styles */
+.card-border-career {
+  @apply border-2 border-dashed border-[hsl(var(--career))] transition-colors duration-300;
+}
+
+.card-border-relationships {
+  @apply border-2 border-dashed border-[hsl(var(--relationships))] transition-colors duration-300;
+}
+
+.card-border-finance {
+  @apply border-2 border-dashed border-[hsl(var(--finance))] transition-colors duration-300;
+}
+
+.card-border-personal {
+  @apply border-2 border-dashed border-[hsl(var(--personal))] transition-colors duration-300;
+}
+
+.card-border-fitness {
+  @apply border-2 border-dashed border-[hsl(var(--fitness))] transition-colors duration-300;
+}
+
+.card-border-social {
+  @apply border-2 border-dashed border-[hsl(var(--social))] transition-colors duration-300;
+}
+
+.card-border-health {
+  @apply border-2 border-dashed border-[hsl(var(--health))] transition-colors duration-300;
+}
