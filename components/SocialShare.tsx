@@ -9,13 +9,13 @@ interface SocialShareProps {
 }
 
 export function SocialShare({ affirmation }: SocialShareProps) {
-  const shareText = encodeURIComponent(`${affirmation} #LetsBeReal #RealTalk`);
+  const shareText = encodeURIComponent(`${affirmation} #underwhelminginspirations underwhelminginspirations.com`);
 
   const handleShare = async () => {
     if (navigator.share) {
       try {
         await navigator.share({
-          text: `${affirmation} #LetsBeReal #RealTalk`,
+          text: `${affirmation} #underwhelminginspirations underwhelminginspirations.com`,
         });
       } catch (err) {
         toast.error("Couldn't share the affirmation");
