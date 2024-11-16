@@ -29,7 +29,8 @@ const categories = [
     emoji: "💼",
     icon: Building2,
     className: "category-career",
-    borderClass: "border-[hsl(var(--career))]",
+    borderClass: "card-border-career",
+    buttonClass: "category-button-career",
     affirmations: [
       "Your dream job just got filled by your less qualified colleague",
       "That promotion? Maybe in another decade",
@@ -64,7 +65,8 @@ const categories = [
     emoji: "💔",
     icon: HeartCrack,
     className: "category-relationships",
-    borderClass: "border-[hsl(var(--relationships))]",
+    borderClass: "card-border-relationships",
+    buttonClass: "category-button-relationships",
     affirmations: [
       "Still single? Your cat isn't surprised",
       "Your ex is thriving without your drama",
@@ -99,7 +101,8 @@ const categories = [
     emoji: "💸",
     icon: Wallet,
     className: "category-finance",
-    borderClass: "border-[hsl(var(--finance))]",
+    borderClass: "card-border-finance",
+    buttonClass: "category-button-finance",
     affirmations: [
       "Your savings account is more empty than your social calendar",
       "That crypto investment? Should've bought a lottery ticket",
@@ -134,9 +137,10 @@ const categories = [
     emoji: "🤔",
     icon: Brain,
     className: "category-personal",
-    borderClass: "border-[hsl(var(--personal))]",
+    borderClass: "card-border-personal",
+    buttonClass: "category-button-personal",
     affirmations: [
-      "Your self-improvement journey is a circle",
+     "Your self-improvement journey is a circle",
       "That new hobby? Another future garage sale item",
       "Your meditation app judges your consistency",
       "Your journal entries read like a comedy script",
@@ -169,7 +173,8 @@ const categories = [
     emoji: "🏋️‍♂️",
     icon: Dumbbell,
     className: "category-fitness",
-    borderClass: "border-[hsl(var(--fitness))]",
+    borderClass: "card-border-fitness",
+    buttonClass: "category-button-fitness",
     affirmations: [
       "Your gym membership is funding someone else's success",
       "Those new running shoes are great dust collectors",
@@ -204,7 +209,8 @@ const categories = [
     emoji: "🤦‍♂️",
     icon: Users,
     className: "category-social",
-    borderClass: "border-[hsl(var(--social))]",
+    borderClass: "card-border-social",
+    buttonClass: "category-button-social",
     affirmations: [
       "Your social life is as active as a sloth on vacation",
       "Your Instagram followers are mostly bots",
@@ -239,7 +245,8 @@ const categories = [
     emoji: "🤒",
     icon: Cloud,
     className: "category-health",
-    borderClass: "border-[hsl(var(--health))]",
+    borderClass: "card-border-health",
+    buttonClass: "category-button-health",
     affirmations: [
       "Your sleep schedule is more chaotic than your love life",
       "Your daily water intake: Mostly coffee",
@@ -318,7 +325,7 @@ export default function Home() {
           </div>
 
           <Card className={cn(
-            "p-6 bg-white/90 dark:bg-neutral-800/90 backdrop-blur-sm shadow-xl border-2 border-dashed transition-colors duration-300",
+            "p-6 bg-white/90 dark:bg-neutral-800/90 backdrop-blur-sm",
             selectedCategoryData?.borderClass
           )}>
             {showSlots ? (
@@ -348,7 +355,10 @@ export default function Home() {
                     size="lg"
                     onClick={handleSpin}
                     disabled={isSpinning}
-                    className="button-glow px-8 py-6 text-lg rounded-full bg-[hsl(var(--career))] hover:bg-[hsl(var(--career))/90] border-none"
+                    className={cn(
+                      "button-glow px-8 py-6 text-lg rounded-full",
+                      selectedCategoryData?.buttonClass
+                    )}
                   >
                     Pull the Lever
                   </Button>
@@ -386,7 +396,10 @@ export default function Home() {
                   <Button
                     size="lg"
                     onClick={() => generateAffirmation()}
-                    className={`button-glow px-8 py-6 text-lg rounded-full ${categories.find(c => c.id === selectedCategory)?.className}`}
+                    className={cn(
+                      "button-glow px-8 py-6 text-lg rounded-full",
+                      selectedCategoryData?.buttonClass
+                    )}
                   >
                     Get Real
                   </Button>
@@ -405,7 +418,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
             <Card className={cn(
-              "p-6 bg-white/60 dark:bg-neutral-800/60 backdrop-blur-sm border-2 border-dashed transition-colors duration-300",
+              "p-6 bg-white/60 dark:bg-neutral-800/60 backdrop-blur-sm",
               selectedCategoryData?.borderClass
             )}>
               <h3 className="font-semibold mb-4 flex items-center gap-2">
@@ -418,7 +431,7 @@ export default function Home() {
               <EmailSubscription />
             </Card>
             <Card className={cn(
-              "p-6 bg-white/60 dark:bg-neutral-800/60 backdrop-blur-sm border-2 border-dashed transition-colors duration-300",
+              "p-6 bg-white/60 dark:bg-neutral-800/60 backdrop-blur-sm",
               selectedCategoryData?.borderClass
             )}>
               <h3 className="font-semibold mb-4 flex items-center gap-2">
