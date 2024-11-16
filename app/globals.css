@@ -117,6 +117,7 @@
 
 .button-glow {
   @apply relative overflow-hidden transition-all duration-300;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .button-glow::after {
@@ -124,8 +125,14 @@
   @apply absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 transition-opacity duration-500;
 }
 
-.button-glow:hover::after {
-  @apply opacity-20;
+@media (hover: hover) {
+  .button-glow:hover::after {
+    @apply opacity-20;
+  }
+}
+
+.button-glow:active::after {
+  @apply opacity-30;
 }
 
 .slot-machine {
@@ -144,31 +151,61 @@
 
 /* Category-specific button styles */
 .category-button-career {
-  @apply bg-[hsl(var(--career))] hover:bg-[hsl(var(--career))/90] text-white;
+  @apply bg-[hsl(var(--career))] text-white;
 }
 
 .category-button-relationships {
-  @apply bg-[hsl(var(--relationships))] hover:bg-[hsl(var(--relationships))/90] text-white;
+  @apply bg-[hsl(var(--relationships))] text-white;
 }
 
 .category-button-finance {
-  @apply bg-[hsl(var(--finance))] hover:bg-[hsl(var(--finance))/90] text-white;
+  @apply bg-[hsl(var(--finance))] text-white;
 }
 
 .category-button-personal {
-  @apply bg-[hsl(var(--personal))] hover:bg-[hsl(var(--personal))/90] text-white;
+  @apply bg-[hsl(var(--personal))] text-white;
 }
 
 .category-button-fitness {
-  @apply bg-[hsl(var(--fitness))] hover:bg-[hsl(var(--fitness))/90] text-white;
+  @apply bg-[hsl(var(--fitness))] text-white;
 }
 
 .category-button-social {
-  @apply bg-[hsl(var(--social))] hover:bg-[hsl(var(--social))/90] text-white;
+  @apply bg-[hsl(var(--social))] text-white;
 }
 
 .category-button-health {
-  @apply bg-[hsl(var(--health))] hover:bg-[hsl(var(--health))/90] text-white;
+  @apply bg-[hsl(var(--health))] text-white;
+}
+
+@media (hover: hover) {
+  .category-button-career:hover {
+    @apply bg-[hsl(var(--career))/90];
+  }
+  
+  .category-button-relationships:hover {
+    @apply bg-[hsl(var(--relationships))/90];
+  }
+  
+  .category-button-finance:hover {
+    @apply bg-[hsl(var(--relationships))/90];
+  }
+  
+  .category-button-personal:hover {
+    @apply bg-[hsl(var(--personal))/90];
+  }
+  
+  .category-button-fitness:hover {
+    @apply bg-[hsl(var(--fitness))/90];
+  }
+  
+  .category-button-social:hover {
+    @apply bg-[hsl(var(--social))/90];
+  }
+  
+  .category-button-health:hover {
+    @apply bg-[hsl(var(--health))/90];
+  }
 }
 
 /* Category-specific card border styles */
